@@ -41,6 +41,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     print("Title: \(book.data.timings.asr)")
                     print(book.data.meta.timezone)
                     DispatchQueue.main.async {
+                        self.fajr.isHidden = false
+                        self.johr.isHidden = false
+                        self.asr.isHidden = false
+                        self.maghrib.isHidden = false
+                        self.isha.isHidden = false
                         self.fajr.text = "Fajr : " + book.data.timings.fajr
                         self.johr.text = "Johr : " + book.data.timings.dhuhr
                         self.asr.text = "Asr : " + book.data.timings.asr
