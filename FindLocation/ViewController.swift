@@ -17,10 +17,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func fetchData(location: CLLocation) {
         print("Fetching.......")
+        var date = Date()
+        var dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd-MM-YY"
+        var today = dateFormater.string(from: date)
+        print("==== \(today)")
         var components = URLComponents()
         components.scheme = "http"
         components.host = "api.aladhan.com"
-        components.path = "/v1/timings/30-11-2024"
+        components.path = "/v1/timings/" + today
 
         components.queryItems = [
             URLQueryItem(name: "latitude", value: "\(location.coordinate.latitude)"),
